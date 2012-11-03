@@ -8,6 +8,7 @@
 # 2 - paper
 # 3 - lizard
 # 4 - scissors
+# and calculate the winner of the game
 import random
 
 
@@ -41,39 +42,37 @@ def name_to_number(name):
 
 
 def rpsls(name):
-    # convert name to player_number using name_to_number
+    # converts name to player_number using name_to_number
     player_number = name_to_number(name)
     
-    # compute random guess for comp_number using random.randrange()
-    comp_number = random.randrange(0,5)
-        
+    # computes random guess for comp_number using random.randrange()
+    comp_number = random.randrange(0,5)        
     
-    # compute difference of player_number and comp_number modulo five
+    # computes difference of player_number and comp_number and uses mod five
     # if diff 1 or 2 player wins
     # if diff 3 or 4 computer wins
     # if diff 0 no one wins
     diff = (player_number - comp_number) % 5
         
     
-    # useing if/elif/else to determine winner
-    winner = 'No one'
+    # using if/elif/else to determine winner    
     if diff == 1 or diff == 2:
         winner = 'Player'
     if diff == 3 or diff == 4:
         winner = 'Computer'
     
     
-    # print results
+    # prints results
     print "Player choose: ", number_to_name(player_number)
     print "Computer choose: ", number_to_name(comp_number) 
     if diff:   
         print winner, "wins!\n"
     else:
-        "We have a tie!"
-    
+        print "We have a tie!\n"
+ 
 
-if __name__=='__main__':    
-    # test
+# test
+if __name__=='__main__': 
     rpsls("rock")
     rpsls("Spock")
     rpsls("paper")
